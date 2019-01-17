@@ -1,13 +1,14 @@
-package com.API.coursereviewAPI.Servies;
+package com.API.coursereviewAPI.SERVICE;
 
-import com.API.coursereviewAPI.Modules.Course;
-import com.API.coursereviewAPI.Repositories.CourseRepository;
+import com.API.coursereviewAPI.REPOSITORY.CourseRepository;
+import com.API.coursereviewAPI.DTO.Course;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -29,13 +30,11 @@ public class CourseService {
         return courses;
     }
 
-    public Course getCourse(String id) {
-        //return courses.stream().filter(t -> t.getTitle().equals(id)).findFirst().get();
-        //return courseRepository.findById(id);
-        //problem here
-        return null;
+    public Optional<Course> getCourse(String id) {
+        return courseRepository.findById(id);
     }
 
+    @Transactional
     public void addCourse(Course course) {
         courseRepository.save(course);
     }
@@ -51,6 +50,7 @@ public class CourseService {
         courseRepository.save(course);
     }
 
+    @Transactional
     public void deleteCourse(String id) {
         //courses.removeIf(t -> t.getTitle().equals(id));
         courseRepository.deleteById(id);
