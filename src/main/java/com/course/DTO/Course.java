@@ -1,4 +1,4 @@
-package com.API.coursereviewAPI.DTO;
+package com.course.DTO;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

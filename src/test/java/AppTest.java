@@ -1,4 +1,4 @@
-import com.API.coursereviewAPI.REPOSITORY.CourseRepository;
+import com.course.REPOSITORY.CourseRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

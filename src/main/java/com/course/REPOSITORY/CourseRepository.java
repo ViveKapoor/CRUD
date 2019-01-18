@@ -1,6 +1,6 @@
-package com.API.coursereviewAPI.REPOSITORY;
+package com.course.REPOSITORY;
 
-import com.API.coursereviewAPI.DTO.Course;
+import com.course.DTO.Course;
 import org.hibernate.annotations.Table;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

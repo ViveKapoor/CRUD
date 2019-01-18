@@ -1,15 +1,13 @@
-package com.API.coursereviewAPI.REST_API;
+package com.course.REST_API;
 
-import com.API.coursereviewAPI.DTO.Course;
-import com.API.coursereviewAPI.SERVICE.CourseService;
+import com.course.DTO.Course;
+import com.course.SERVICE.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @RestController
 @ComponentScan

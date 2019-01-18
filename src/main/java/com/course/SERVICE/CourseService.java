@@ -1,7 +1,7 @@
-package com.API.coursereviewAPI.SERVICE;
+package com.course.SERVICE;
 
-import com.API.coursereviewAPI.REPOSITORY.CourseRepository;
-import com.API.coursereviewAPI.DTO.Course;
+import com.course.REPOSITORY.CourseRepository;
+import com.course.DTO.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
