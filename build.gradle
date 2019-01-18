@@ -1,13 +1,13 @@
 buildscript {
-    ext {
-        springBootVersion = '2.1.2.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+ext {
+springBootVersion = '2.1.2.RELEASE'
+}
+repositories {
+mavenCentral()
+}
+dependencies {
+classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+}
 }
 
 apply plugin: 'java'
@@ -21,13 +21,17 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-    mavenCentral()
+mavenCentral()
+jcenter()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'mysql:mysql-connector-java'
-    implementation 'org.hibernate:hibernate-core:5.4.0.Final'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+implementation 'org.springframework.boot:spring-boot-starter-web'
+implementation 'org.springframework.boot:spring-boot-test-autoconfigure'
+implementation 'mysql:mysql-connector-java'
+implementation 'org.hibernate:hibernate-core:5.4.0.Final'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'junit:junit:4.12'
+
 }
