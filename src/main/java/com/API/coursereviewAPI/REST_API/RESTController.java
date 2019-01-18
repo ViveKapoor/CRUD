@@ -15,14 +15,8 @@ import java.util.logging.Logger;
 @ComponentScan
 public class RESTController {
 
-    Logger logger = Logger.getLogger(RESTController.class.getName());
     @Autowired
     private CourseService courseService;
-
-    public void setLogger(Logger logger) {
-        this.logger = logger;
-        logger.setLevel(Level.FINE);
-    }
 
     @RequestMapping("/")
     public String helloGradle() {
