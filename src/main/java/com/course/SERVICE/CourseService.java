@@ -1,7 +1,7 @@
 package com.course.SERVICE;
 
-import com.course.REPOSITORY.CourseRepository;
 import com.course.DTO.Course;
+import com.course.REPOSITORY.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,18 +16,13 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-    /*
-    private List<Course> courses = new ArrayList<>(Arrays.asList(
-            new Course("spring", "spring.io"),
-            new Course("facebook", "facebook.com"),
-            new Course("ML", "coursera.com")
-    ));
-    */
-
     public List<Course> getAllCourses() {
         List<Course> courses = new ArrayList<>();
         courseRepository.findAll().forEach(courses::add);
         return courses;
+    }
+
+    public void CourseService() {
     }
 
     public Optional<Course> getCourse(String id) {
