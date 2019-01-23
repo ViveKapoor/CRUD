@@ -16,6 +16,7 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
+    @Transactional(readOnly = true)
     public List<Course> getAllCourses() {
         List<Course> courses = new ArrayList<>();
         courseRepository.findAll().forEach(courses::add);
@@ -25,11 +26,11 @@ public class CourseService {
     public void CourseService() {
     }
 
+    @Transactional(readOnly = true)
     public Optional<Course> getCourse(String id) {
         return courseRepository.findById(id);
     }
 
-    @Transactional
     public void addCourse(Course course) {
         courseRepository.save(course);
     }

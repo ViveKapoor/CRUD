@@ -1,3 +1,5 @@
+package com.course;
+
 import com.course.DTO.Course;
 import com.course.REPOSITORY.CourseRepository;
 import com.course.REST_API.RESTController;
@@ -11,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
-
-// BUG - CourseRepository Constructor
 
 public class AppTest {
 
@@ -108,7 +108,7 @@ public class AppTest {
     @Autowired
     private CourseService courseService;
 
-    public AppTest() {
+    public com.course.AppTest() {
 
     }
 

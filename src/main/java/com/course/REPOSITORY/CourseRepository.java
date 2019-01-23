@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Table(appliesTo = "course")
 public interface CourseRepository extends CrudRepository<Course, String> {
-
 }
