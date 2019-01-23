@@ -1,7 +1,7 @@
 package com.course;
 
-import com.course.DTO.Course;
-import com.course.REPOSITORY.CourseRepository;
+import com.course.DAO.CourseDaoImpl;
+import com.course.Model.Course;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,10 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Optional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CourseReviewApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UpdateCourseIntegrationTest {
     @Autowired
-    private CourseRepository courseRepository;
+    private CourseDaoImpl courseDaoImpl;
 
     @LocalServerPort
     private int port;
@@ -24,15 +24,15 @@ public class UpdateCourseIntegrationTest {
     @Test
     public void testUpdateCourse()  {
         Course course = new Course("test","test.com");
-        courseRepository.save(course);
+        courseDaoImpl.save(course);
 
-        Optional<Course> retreiveFromDB = courseRepository.findById(course.getTitle());
-        Assert.assertEquals(course, retreiveFromDB);
+        Optional<Course> retreiveFromDB = courseDaoImpl.findById(course.getTitle());
+        Assert.assertEquals(course.getTitle(), retreiveFromDB);
 
         Course updatedCourse = new Course("test", "http://test.com");
-        courseRepository.save(updatedCourse);
+        courseDaoImpl.save(updatedCourse);
 
-        Optional<Course> verifyRetreiveFromDB = courseRepository.findById(updatedCourse.getTitle());
+        Optional<Course> verifyRetreiveFromDB = courseDaoImpl.findById(updatedCourse.getTitle());
         Assert.assertEquals(updatedCourse, verifyRetreiveFromDB);
     }
 }

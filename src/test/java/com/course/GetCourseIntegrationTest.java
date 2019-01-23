@@ -1,7 +1,5 @@
 package com.course;
 
-import com.course.CourseReviewApiApplication;
-import com.course.REPOSITORY.CourseRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CourseReviewApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class GetCourseIntegrationTest {
 
     @LocalServerPort
@@ -40,7 +38,7 @@ public class GetCourseIntegrationTest {
 //public class com.course.GetCourseIntegrationTest {
 //
 //    @Autowired
-//    private CourseRepository courseRepository;
+//    private CourseDaoImpl courseRepository;
 //
 //    @Autowired
 //    private Course course;

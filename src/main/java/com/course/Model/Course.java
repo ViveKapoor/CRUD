@@ -1,4 +1,4 @@
-package com.course.DTO;
+package com.course.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

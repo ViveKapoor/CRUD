@@ -1,7 +1,7 @@
-package com.course.SERVICE;
+package com.course.Service;
 
-import com.course.DTO.Course;
-import com.course.REPOSITORY.CourseRepository;
+import com.course.DAO.CourseDaoImpl;
+import com.course.Model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,12 +14,12 @@ import java.util.Optional;
 public class CourseService {
 
     @Autowired
-    private CourseRepository courseRepository;
+    private CourseDaoImpl courseDaoImpl;
 
     @Transactional(readOnly = true)
     public List<Course> getAllCourses() {
         List<Course> courses = new ArrayList<>();
-        courseRepository.findAll().forEach(courses::add);
+        courseDaoImpl.findAll().forEach(courses::add);
         return courses;
     }
 
@@ -28,11 +28,11 @@ public class CourseService {
 
     @Transactional(readOnly = true)
     public Optional<Course> getCourse(String id) {
-        return courseRepository.findById(id);
+        return courseDaoImpl.findById(id);
     }
 
     public void addCourse(Course course) {
-        courseRepository.save(course);
+        courseDaoImpl.save(course);
     }
 
     public void updateCourse(Course course, String id) {
@@ -43,12 +43,12 @@ public class CourseService {
                 return;
             }
         }*/
-        courseRepository.save(course);
+        courseDaoImpl.save(course);
     }
 
     @Transactional
     public void deleteCourse(String id) {
         //courses.removeIf(t -> t.getTitle().equals(id));
-        courseRepository.deleteById(id);
+        courseDaoImpl.deleteById(id);
     }
 }

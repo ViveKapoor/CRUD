@@ -1,9 +1,9 @@
 package com.course;
 
-import com.course.DTO.Course;
-import com.course.REPOSITORY.CourseRepository;
-import com.course.REST_API.RESTController;
-import com.course.SERVICE.CourseService;
+import com.course.DAO.CourseDaoImpl;
+import com.course.Model.Course;
+import com.course.Web.CourseController;
+import com.course.Service.CourseService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,9 +19,9 @@ public class AppTest {
     @Autowired
     private static final CourseService courseService = mock(CourseService.class);
     @Autowired
-    private static final CourseRepository courseRepository = mock(CourseRepository.class);
+    private static final CourseDaoImpl COURSE_DAO_IMPL = mock(CourseDaoImpl.class);
 
-    private RESTController rc = new RESTController();
+    private CourseController rc = new CourseController();
     private Optional<Course> response;
     private Course dummyCourse = new Course("Wikipedia", "https://wikipedia.org");
     private String TEST_COURSE_TITLE = "Wikipedia";
@@ -81,12 +81,12 @@ public class AppTest {
     MockMvc mockMvc;
 
     @MockBean
-    CourseRepository courseRepository;
+    CourseDaoImpl COURSE_DAO_IMPL;
 
     @Test
     public void contextLoads() throws Exception {
 
-        Mockito.when(courseRepository.findAll()).thenReturn(
+        Mockito.when(COURSE_DAO_IMPL.findAll()).thenReturn(
                 Collections.EMPTY_LIST
         );
         MvcResult mvcResult;
@@ -98,7 +98,7 @@ public class AppTest {
 
         System.out.println(mvcResult.getResponse());
 
-        Mockito.verify(courseRepository).findAll();
+        Mockito.verify(COURSE_DAO_IMPL).findAll();
     }
 
 

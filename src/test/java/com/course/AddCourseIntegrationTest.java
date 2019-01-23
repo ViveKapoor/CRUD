@@ -1,7 +1,7 @@
 package com.course;
 
-import com.course.DTO.Course;
-import com.course.REPOSITORY.CourseRepository;
+import com.course.Model.Course;
+import com.course.DAO.CourseDaoImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,10 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Optional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CourseReviewApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class AddCourseIntegrationTest {
     @Autowired
-    private CourseRepository courseRepository;
+    private CourseDaoImpl courseDaoImpl;
 
     @LocalServerPort
     private int port;
@@ -24,14 +24,14 @@ public class AddCourseIntegrationTest {
     @Test
     public void testAddCourse() {
         Course course = new Course("test","test.com");
-        Assert.assertEquals(courseRepository.findById(course.getTitle()), Optional.empty());
+        Assert.assertEquals(courseDaoImpl.findById(course.getTitle()), Optional.empty());
 
-        courseRepository.save(course);
+        courseDaoImpl.save(course);
 
-        Assert.assertEquals(course, courseRepository.findById(course.getTitle()));
+        Assert.assertEquals(course, courseDaoImpl.findById(course.getTitle()));
 
-        courseRepository.deleteById(course.getTitle());
+        courseDaoImpl.deleteById(course.getTitle());
 
-        //Assert.assertEquals(Optional.empty(), courseRepository.findById(course.getTitle()));
+        //Assert.assertEquals(Optional.empty(), courseDaoImpl.findById(course.getTitle()));
     }
 }

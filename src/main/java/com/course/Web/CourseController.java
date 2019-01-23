@@ -1,9 +1,8 @@
-package com.course.REST_API;
+package com.course.Web;
 
-import com.course.DTO.Course;
-import com.course.SERVICE.CourseService;
+import com.course.Model.Course;
+import com.course.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +11,11 @@ import java.util.Optional;
 
 @RestController
 @Controller
-public class RESTController {
+public class CourseController {
 
     private CourseService courseService;
 
-    public RESTController() {
+    public CourseController() {
         courseService = new CourseService();
     }
 
