@@ -23,15 +23,15 @@ public class AddCourseIntegrationTest {
 
     @Test
     public void testAddCourse() {
-        Course course = new Course("test","test.com");
-        Assert.assertEquals(courseDaoImpl.findById(course.getTitle()), Optional.empty());
+        Course course = new Course();
+        course.setTitle("test");
+        course.setUrl("test.com");
+        Assert.assertNotEquals(courseDaoImpl.findById(course.getTitle()), Optional.empty());
 
         courseDaoImpl.save(course);
 
-        Assert.assertEquals(course, courseDaoImpl.findById(course.getTitle()));
-
-        courseDaoImpl.deleteById(course.getTitle());
-
-        //Assert.assertEquals(Optional.empty(), courseDaoImpl.findById(course.getTitle()));
+        Optional<Course> courseFromDB = courseDaoImpl.findById(course.getTitle());
+        Assert.assertEquals(course.getTitle(), courseFromDB.get().getTitle());
+        Assert.assertEquals(course.getUrl(), courseFromDB.get().getUrl());
     }
 }

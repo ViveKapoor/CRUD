@@ -27,12 +27,14 @@ public class UpdateCourseIntegrationTest {
         courseDaoImpl.save(course);
 
         Optional<Course> retreiveFromDB = courseDaoImpl.findById(course.getTitle());
-        Assert.assertEquals(course.getTitle(), retreiveFromDB);
+        Assert.assertEquals(course.getTitle(), retreiveFromDB.get().getTitle());
+        Assert.assertEquals(course.getUrl(), retreiveFromDB.get().getUrl());
 
         Course updatedCourse = new Course("test", "http://test.com");
         courseDaoImpl.save(updatedCourse);
 
         Optional<Course> verifyRetreiveFromDB = courseDaoImpl.findById(updatedCourse.getTitle());
-        Assert.assertEquals(updatedCourse, verifyRetreiveFromDB);
+        Assert.assertEquals(updatedCourse.getUrl(), verifyRetreiveFromDB.get().getUrl());
+        Assert.assertEquals(updatedCourse.getTitle(), verifyRetreiveFromDB.get().getTitle());
     }
 }

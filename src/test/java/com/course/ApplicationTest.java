@@ -4,6 +4,7 @@ import com.course.DAO.CourseDaoImpl;
 import com.course.Model.Course;
 import com.course.Web.CourseController;
 import com.course.Service.CourseService;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +15,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
-public class AppTest {
+public class ApplicationTest {
 
     @Autowired
     private static final CourseService courseService = mock(CourseService.class);
@@ -108,7 +109,7 @@ public class AppTest {
     @Autowired
     private CourseService courseService;
 
-    public com.course.AppTest() {
+    public com.course.ApplicationTest() {
 
     }
 
